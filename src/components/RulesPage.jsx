@@ -13,21 +13,29 @@ function RulePage() {
         </div>
       </nav>
       <div className="rule-page">
-          <h1>Wordle Game Rules</h1>
+          <h1>How to Play Wordle</h1>
           <div className="rules-content">
-              <p>In Wordle, the game secretly chooses a random word that the user will try to guess within a certain number of attempts. The length of the word and the number of attempts are based on the difficulty selected by the user.</p>
-              <p>Easy: 6 letters, 6 attempts</p>
-              <p>Hard: 7 letters, 5 attempts</p>
-              <p>Users must input a word that matches the length defined by the difficulty level.</p>
-              <p>If the user inputs the correct word, a congratulatory message is displayed. For incorrect guesses, the game provides clues based on the letter positions. Letters in the correct spot are highlighted in green, letters in the word but in the wrong spot are highlighted in yellow, and letters not in the word are marked in gray.</p>
-              <p>Example: If the correct word is "FACES" and the user submits "EATS", the letter 
-                <span className="rule-correct"> A</span> will be highlighted in green, and 
-                <span className="rule-wrong-position"> E</span> in yellow. The second 'E' remains 
-                <span className="rule-incorrect"> gray</span> as it only appears once in the correct word.</p>
-          </div>
-          <button onClick={() => window.history.back()}>Back to HomePage</button>
-      </div>
-      </div>
+            <p>Guess the secret word in a limited number of tries.</p>
+            <p>Each guess must match the length defined by the selected difficulty level:</p>
+            <ul>
+                <li>Easy: 6 letters, 6 attempts</li>
+                <li>Hard: 7 letters, 5 attempts</li>
+            </ul>
+            <p>After each guess, the color of the tiles will indicate how close your guess was:</p>
+            <div class="color-explanation">
+                  <div class="color-box correct">Correct</div>: Letter is in the word and in the right position.
+              </div>
+              <div class="color-explanation">
+                  <div class="color-box wrong-position">Wrong Pos</div>: Letter is in the word but in the wrong spot.
+              </div>
+              <div class="color-explanation">
+                  <div class="color-box incorrect">Incorrect</div>: Letter is not in the word in any spot.
+              </div>
+              <p>Example: If the correct word is "HAPPY" and the guess is "PARTY", 'P' would be <span className="example correct">Correct</span>, 'A' would be in <span className="example wrong-position">Wrong Pos</span>, and 'R' and 'T' would be <span className="example incorrect">Incorrect</span>.</p>
+        </div>
+        <button onClick={() => window.history.back()}>Back to Game</button>
+    </div>
+    </div>
   );
 }
 

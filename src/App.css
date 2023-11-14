@@ -147,7 +147,7 @@ body {
   height: calc(100vh - 170px);
   display: flex;
   align-items: center;
-  padding-top: 250px;
+  padding-top: 100px;
   flex-direction: column;
 }
 
@@ -158,14 +158,13 @@ body {
   margin-top: 20px; 
 }
 
+
 .board {
   width: 450px;
   height: 550px;
-  border: 3px solid #333;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -191,12 +190,20 @@ body {
 
 
 .keyboard {
-  width: 100%; 
-  max-width: 100%;
-  margin: 20px auto;
+  width: 80%; /* Adjust based on your design */
+  max-width: 700px; /* Maximum width */
+  padding: 0;
+  margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 5px; /* Space between keys */
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* This will prevent wrapping */
 }
 
 .line1 {
@@ -223,19 +230,27 @@ body {
 }
 
 .key {
-  width: 40px;
-  height: 60px;
-  margin: 5px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
+  flex: 1 0 9%; /* Flex-grow, Flex-shrink, Flex-basis */
+  max-width: 60px; /* Maximum width of a key */
+  padding: 10px;
+  font-size: 1.5vh; /* Font size scales with viewport height */
+  margin: 3px; /* Margin around keys */
+  border: none; /* Remove border if any */
+  border-radius: 5px;
   background-color: #555;
-  color: black;
+  color: white;
+  text-align: center;
+  line-height: normal;
+  user-select: none; /* Prevent text selection */
   cursor: pointer;
-  min-width: 25px;
+  transition: background-color 0.3s, transform 0.3s;
 }
+
+.key.enter-key,
+.key.backspace-key {
+  flex-basis: 18%; /* Twice the size of a regular key */
+}
+
 
 #big {
   flex-grow: 1;
@@ -290,12 +305,12 @@ body {
 }
 
 .cell.correct {
-  background-color: greenyellow; 
+  background-color: #6aaa64; 
   transform: scale(1.1);
 }
 
 .cell.wrong-position {
-  background-color: darkgoldenrod;
+  background-color: #c9b458;
   color: whitesmoke; 
 }
 
@@ -378,6 +393,10 @@ body {
   margin: 0 0 20px 0;
 }
 
+.rule-page p, .rule-page li {
+  color: #333; /* Adjust color for readability */
+}
+
 .rules-content {
   background-color: #f0f0f0;
   padding: 15px;
@@ -422,6 +441,52 @@ body {
   font-weight: bold;
 }
 
+.example {
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+}
+
+.color-explanation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.color-box {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 5px;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.tile {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+.correct {
+  background-color: #6aaa64; /* Green for correct */
+}
+
+.wrong-position {
+  background-color: #c9b458; /* Yellow for wrong position */
+}
+
+.incorrect {
+  background-color: #787c7e; /* Grey for incorrect */
+}
+
 
 @media (max-width: 600px) {
   .navbar {
@@ -458,11 +523,12 @@ body {
   }
 
   .keyboard {
+    width: 95%; /* Adjust based on your design */
     max-width: 100%;
   }
 
   .game-page {
-    padding-top: 60px; 
+    padding-top: 300px; 
   }
 
   .game-page h1 {
@@ -470,8 +536,24 @@ body {
   }
 
   .key {
-    min-width: 20px;
-    font-size: 10px;
+    padding: 8px;
+    margin: 3px;
+    font-size: 0.8em; /* Smaller font size for smaller screens */
+    width: calc(100% / 10 - 6px); /* Adjust '10' based on number of keys in the longest row */
+  }
+
+  .key.enter-key,
+  .key.backspace-key {
+  flex-basis: 22%;
+  width: calc(100% / 10 * 1.5); /* Adjust the multiplier for desired width */
+  }
+
+  .keyboard-row:nth-child(2) .key {
+    width: calc(100% / 9 - 10px); /* Adjust '9' for the number of keys in this row */
+  }
+
+  .keyboard-row:nth-child(3) .key {
+    width: calc(100% / 7 - 10px); /* Adjust '7' for the number of keys in this row */
   }
 
   #big {
@@ -499,6 +581,36 @@ body {
   .rule-page button {
     padding: 8px 15px;
   }
+
+  .rules-content p, .rules-content ul {
+    font-size: 14px;
+  }
+
+  .board {
+    width: calc(100% - 20px); /* Full width minus padding */
+    max-width: 450px; /* Maximum width */
+    margin: auto; /* Center the board */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between rows */
+  }
+  
+  .row {
+    display: flex;
+    gap: 5px; /* Space between cells */
+  }
+  
+  .cell {
+    flex: 1 0 auto; /* Flex-grow, Flex-shrink, Auto basis */
+    aspect-ratio: 1 / 1; /* Square cells */
+    max-width: 50px; /* Maximum cell size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh; /* Responsive font size */
+    border: 1px solid grey;
+    border-radius: 4px;
+    color: whitesmoke;
 }
 
-
+}
