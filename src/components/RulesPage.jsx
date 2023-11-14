@@ -31,7 +31,7 @@ function RulePage() {
               <div class="color-explanation">
                   <div class="color-box incorrect">Incorrect</div>: Letter is not in the word in any spot.
               </div>
-              <p>Example: If the correct word is "HAPPY" and the guess is "PARTY", 'P' would be <span className="example correct">Correct</span>, 'A' would be in <span className="example wrong-position">Wrong Position</span>, and 'R' and 'T' would be <span className="example incorrect">Incorrect</span>.</p>
+              <p>Example: If the correct word is "HAPPY" and the guess is "PARTY", 'A' and 'Y' would be <span className="example correct">Correct</span>, 'P' would be in <span className="example wrong-position">Wrong Position</span>, and 'R' and 'T' would be <span className="example incorrect">Incorrect</span>.</p>
         </div>
         <button onClick={() => window.history.back()}>Back to Game</button>
     </div>
