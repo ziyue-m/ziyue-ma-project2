@@ -523,10 +523,14 @@ body {
   }
 
   .keyboard {
-    width: 95%; /* Adjust based on your design */
-    max-width: 100%;
+    width: 100%; /* Set keyboard width to 100% of parent element */
+    max-width: none; /* Remove the max-width constraint */
+    padding: 0 10px; /* Add padding for better spacing */
+    gap: 3px; /* Reduce the gap between keys for smaller screens */
   }
-
+  .keyboard-row {
+    justify-content: space-between; /* Distribute keys evenly */
+  }
   .game-page {
     padding-top: 300px; 
   }
@@ -536,16 +540,14 @@ body {
   }
 
   .key {
-    padding: 8px;
-    margin: 3px;
-    font-size: 0.8em; /* Smaller font size for smaller screens */
-    width: calc(100% / 10 - 6px); /* Adjust '10' based on number of keys in the longest row */
+    flex-basis: calc(100% / 10 - 3px); /* Adjust flex basis for each key */
+    font-size: 14px; /* Reduce font size for better visibility */
+    padding: 5px 0; /* Adjust padding for keys */
   }
 
   .key.enter-key,
   .key.backspace-key {
-  flex-basis: 22%;
-  width: calc(100% / 10 * 1.5); /* Adjust the multiplier for desired width */
+    flex-basis: calc(100% / 5 - 3px); /* Adjust size for larger keys */
   }
 
   .keyboard-row:nth-child(2) .key {
