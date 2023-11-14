@@ -523,11 +523,13 @@ body {
   }
 
   .keyboard {
-    width: 100%; /* Set keyboard width to 100% of parent element */
-    max-width: none; /* Remove the max-width constraint */
-    padding: 0 10px; /* Add padding for better spacing */
-    gap: 3px; /* Reduce the gap between keys for smaller screens */
+    width: 100%; /* 设置键盘宽度为父元素的100% */
+    max-width: 450px; /* 设置最大宽度与board相同 */
+    padding: 0 10px; /* 添加内边距以提供更好的间距 */
+    gap: 3px; /* 缩小键之间的间距 */
+    margin: 10px auto; /* 居中显示 */
   }
+  
   .keyboard-row {
     justify-content: space-between; /* Distribute keys evenly */
   }
