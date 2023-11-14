@@ -523,15 +523,14 @@ body {
   }
 
   .keyboard {
-    width: 100%; /* 设置键盘宽度为父元素的100% */
-    max-width: 450px; /* 设置最大宽度与board相同 */
-    padding: 0 10px; /* 添加内边距以提供更好的间距 */
-    gap: 3px; /* 缩小键之间的间距 */
-    margin: 10px auto; /* 居中显示 */
+    width: 100%; 
+    max-width: 450px; 
+    margin: 0 auto; 
+    gap: 0; 
   }
-  
   .keyboard-row {
-    justify-content: space-between; /* Distribute keys evenly */
+    justify-content: center; 
+    flex-wrap: wrap;
   }
   .game-page {
     padding-top: 300px; 
@@ -542,27 +541,29 @@ body {
   }
 
   .key {
-    flex-basis: calc(100% / 10 - 3px); /* Adjust flex basis for each key */
-    font-size: 14px; /* Reduce font size for better visibility */
-    padding: 5px 0; /* Adjust padding for keys */
+    flex: 0 0 5%; 
+    height: 3vw; 
+    font-size: 3vw; 
+    padding: 0.5vw; 
+    margin: 0;
   }
+
+ 
+  .keyboard-row:nth-child(2) .key,
+  .keyboard-row:nth-child(3) .key {
+    flex: 0 0 5%; 
+  }
+
 
   .key.enter-key,
   .key.backspace-key {
-    flex-basis: calc(100% / 5 - 3px); /* Adjust size for larger keys */
-  }
-
-  .keyboard-row:nth-child(2) .key {
-    width: calc(100% / 9 - 10px); /* Adjust '9' for the number of keys in this row */
-  }
-
-  .keyboard-row:nth-child(3) .key {
-    width: calc(100% / 7 - 10px); /* Adjust '7' for the number of keys in this row */
+    flex: 0 0 10%; 
   }
 
   #big {
-    min-width: 40px;
+    flex: 1 0 18%;
   }
+
 
   .rule-page {
     width: 95vw;
@@ -591,30 +592,22 @@ body {
   }
 
   .board {
-    width: calc(100% - 20px); /* Full width minus padding */
-    max-width: 450px; /* Maximum width */
-    margin: auto; /* Center the board */
-    display: flex;
-    flex-direction: column;
-    gap: 5px; /* Space between rows */
+    width: 80vw; 
+    height: auto; 
+    max-width: 450px; 
+    margin: 20px auto; 
   }
   
   .row {
-    display: flex;
-    gap: 5px; /* Space between cells */
+    justify-content: center;
   }
   
   .cell {
-    flex: 1 0 auto; /* Flex-grow, Flex-shrink, Auto basis */
-    aspect-ratio: 1 / 1; /* Square cells */
-    max-width: 50px; /* Maximum cell size */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5vh; /* Responsive font size */
-    border: 1px solid grey;
-    border-radius: 4px;
-    color: whitesmoke;
-}
-
+    width: 15vw; 
+    height: 15vw; 
+    max-width: 50px; 
+    max-height: 50px; 
+    font-size: 4vw; 
+    margin: 1vw; 
+  }
 }
