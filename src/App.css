@@ -1,0 +1,494 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  text-align: center;
+  background-color: #121212;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  width: 100%; 
+  box-sizing: border-box; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 100; 
+}
+
+.navbar-logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #45a049;
+}
+
+
+.home-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100vw; 
+  height: calc(100vh - 60px); 
+}
+
+.home-page h1 {
+  margin-bottom: 30px;
+  color: #4CAF50;
+}
+
+.home-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-link {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.home-link:hover {
+  background-color: #45a049;
+}
+
+.difficulty-select-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  text-align: center;
+}
+
+.difficulty-select-page h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.difficulty-select-page button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.2rem;
+}
+
+.difficulty-select-page button:hover {
+  background-color: #45a049;
+}
+
+
+.game-page {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+  height: calc(100vh - 170px);
+  width: 100vw;
+  height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  padding-top: 250px;
+  flex-direction: column;
+}
+
+
+.game-page h1 {
+  color: #333;
+  font-size: 2em;
+  margin-top: 20px; 
+}
+
+.board {
+  width: 450px;
+  height: 550px;
+  border: 3px solid #333;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.row {
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 5px;
+}
+
+
+.letter {
+  flex: 33%;
+  height: 100%;
+  border: 1px solid grey;
+  margin: 5px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.keyboard {
+  width: 100%; 
+  max-width: 700px; 
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.line1 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.line2 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+}
+.line3 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+}
+
+.key {
+  width: 40px;
+  height: 60px;
+  margin: 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  background-color: #555;
+  color: black;
+  cursor: pointer;
+}
+
+#big {
+  flex-grow: 1;
+  width: 80px;
+}
+#disabled {
+  background-color: #3a393c;
+}
+
+.game-status {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-status h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.game-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.attempts-remaining {
+  font-weight: bold;
+  color: #17a2b8;
+}
+
+.keyboard-key.special-key {
+  background-color: #eee;
+}
+
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid grey;
+  margin: 5px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cell.correct {
+  background-color: greenyellow; 
+  transform: scale(1.1);
+}
+
+.cell.wrong-position {
+  background-color: darkgoldenrod;
+  color: whitesmoke; 
+}
+
+.cell.incorrect {
+  background-color: gray; 
+}
+
+.cell.unsure {
+  background-color: gray; 
+}
+
+.game-page {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+}
+
+.game-page h1 {
+  color: #333;
+  font-size: 2em;
+}
+
+
+.keyboard .enter-key:hover {
+  background-color: skyblue; 
+
+}
+
+.keyboard .backspace-key:hover {
+  background-color: #e54d4d; 
+}
+
+
+.game-page button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+.game-page button:hover {
+  background-color: #45a049;
+}
+
+.game-message {
+  color: #d9534f;
+  margin: 20px 0;
+}
+
+.attempts-remaining {
+  color: #5bc0de;
+  margin-bottom: 20px;
+}
+
+.rule-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 80vw; 
+  max-width: 600px; 
+  margin: auto; 
+  height: auto; 
+}
+
+.rule-page h1 {
+  color: #4CAF50;
+  margin: 0 0 20px 0;
+}
+
+.rules-content {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rules-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 10px 0; 
+}
+
+.rule-page button {
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 50px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 30px;
+}
+
+.rule-page button:hover {
+  background-color: #45a049;
+}
+
+.rule-correct {
+  color: green;
+  font-weight: bold;
+}
+
+.rule-wrong-position {
+  color: goldenrod;
+  font-weight: bold;
+}
+
+.rule-incorrect {
+  color: gray;
+  font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navbar-logo, .navbar-links {
+    margin: 5px 0;
+  }
+
+  .home-page {
+    padding: 10px;
+    height: calc(100vh - 100px);
+  }
+
+  .home-page h1 {
+    font-size: 1.5em;
+  }
+
+  .home-link {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .difficulty-select-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .difficulty-select-page button {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+
+  .keyboard {
+    max-width: 100%;
+  }
+
+  .game-page h1 {
+    font-size: 1.5em;
+  }
+
+  .key {
+    min-width: 25px;
+    font-size: 12px;
+  }
+
+  #big {
+    min-width: 50px;
+  }
+
+  .rule-page {
+    width: 95vw;
+    padding: 10px;
+  }
+
+  .rules-content {
+    padding: 10px;
+  }
+
+  .rules-content p {
+    font-size: 14px; 
+  }
+
+  .rule-page button {
+    padding: 8px 15px;
+  }
+}
+
+
