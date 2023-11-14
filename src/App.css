@@ -192,7 +192,7 @@ body {
 
 .keyboard {
   width: 100%; 
-  max-width: 700px; 
+  max-width: 100%;
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
@@ -230,10 +230,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 12px;
   background-color: #555;
   color: black;
   cursor: pointer;
+  min-width: 25px;
 }
 
 #big {
@@ -460,22 +461,31 @@ body {
     max-width: 100%;
   }
 
+  .game-page {
+    padding-top: 60px; 
+  }
+
   .game-page h1 {
     font-size: 1.5em;
   }
 
   .key {
-    min-width: 25px;
-    font-size: 12px;
+    min-width: 20px;
+    font-size: 10px;
   }
 
   #big {
-    min-width: 50px;
+    min-width: 40px;
   }
 
   .rule-page {
     width: 95vw;
     padding: 10px;
+    padding-top: 60px;
+  }
+
+  .rule-page h1 {
+    font-size: 1.5em;
   }
 
   .rules-content {
